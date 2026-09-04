@@ -1,0 +1,22 @@
+{
+  "name": "razorpay-revrecover-ai",
+  "version": "1.0.0",
+  "description": "Multi-Merchant AI Revenue Recovery Platform for Razorpay Buildathon Track 03",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "razorpay": "^2.9.6",
+    "sqlite3": "^6.0.1",
+    "ws": "^8.18.0"
+  }
+}
