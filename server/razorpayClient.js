@@ -46,7 +46,7 @@ class RazorpayService {
         },
         reminder_enable: true,
         reference_id: reference_id || `recov_${Date.now()}`,
-        callback_url: 'https://razorpay.com',
+        callback_url: 'http://localhost:3000',
         callback_method: 'get'
       };
 

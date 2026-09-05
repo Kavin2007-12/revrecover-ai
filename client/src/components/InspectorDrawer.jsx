@@ -25,7 +25,9 @@ export default function InspectorDrawer({ txn, logs, onClose }) {
                     {txn.id}
                   </span>
                 </div>
-                <p className="text-xs text-slate-400 mt-0.5">{txn.merchantName} ({txn.category})</p>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  {txn.merchantName || 'TechGear India'} ({txn.category || (txn.id?.includes('D2C') ? 'D2C E-Commerce' : txn.id?.includes('SAAS') ? 'SaaS Subscriptions' : 'B2B Enterprise')})
+                </p>
               </div>
               <button
                 onClick={onClose}
@@ -39,15 +41,15 @@ export default function InspectorDrawer({ txn, logs, onClose }) {
             <div className="glass-card p-4 rounded-xl border border-slate-800 mb-6 space-y-2 text-xs">
               <div className="flex justify-between">
                 <span className="text-slate-400">Customer:</span>
-                <span className="font-semibold text-slate-200">{txn.customerName} ({txn.customerEmail})</span>
+                <span className="font-semibold text-slate-200">{txn.customerName || 'Kavin'} ({txn.customerEmail || 'kavin@example.com'})</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-400">Item / Invoice:</span>
-                <span className="font-semibold text-slate-200">{txn.itemDescription}</span>
+                <span className="font-semibold text-slate-200">{txn.itemDescription || 'Order Purchase'}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-400">Amount at Risk:</span>
-                <span className="font-extrabold text-white text-sm">₹{txn.amount.toLocaleString('en-IN')}</span>
+                <span className="font-extrabold text-white text-sm">₹{(txn.amount || 0).toLocaleString('en-IN')}</span>
               </div>
             </div>
 
