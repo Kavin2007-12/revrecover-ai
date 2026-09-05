@@ -130,40 +130,6 @@ export default function TransactionGrid({
                 </div>
               )}
 
-              {/* Plain English AI Diagnosis Card */}
-              {txn.diagnosis && txn.status !== 'PAUSED_HUMAN_APPROVAL' && (
-                <div className="bg-slate-900/90 border border-slate-800/80 p-3 rounded-xl mb-4 text-xs">
-                  <div className="flex items-center justify-between text-[11px] text-blue-400 font-semibold mb-1">
-                    <span className="flex items-center gap-1">
-                      <Sparkles className="w-3 h-3" /> AI Diagnostic Insight
-                    </span>
-                    <span className="text-[10px] text-slate-500 font-normal">{txn.diagnosis.diagnosticSource}</span>
-                  </div>
-                  <p className="text-slate-300 leading-relaxed mb-1.5">{txn.diagnosis.rootCauseSummary}</p>
-                  <div className="text-[11px] text-amber-300/90 font-medium flex items-center gap-1">
-                    <span>Target Strategy:</span>
-                    <span className="underline font-semibold">{txn.diagnosis.incentiveOffered}</span>
-                  </div>
-                </div>
-              )}
-
-              {/* Razorpay Payment Link if generated */}
-              {txn.razorpayLink && (
-                <div className="bg-blue-950/20 border border-blue-900/40 p-2.5 rounded-xl mb-4 text-xs flex items-center justify-between">
-                  <span className="text-slate-400 font-mono text-[11px] truncate max-w-[200px]">
-                    {txn.razorpayLink}
-                  </span>
-                  <a
-                    href={txn.razorpayLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-blue-400 hover:text-blue-300 flex items-center gap-1 text-[11px] font-semibold"
-                  >
-                    <span>Razorpay Link</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-              )}
             </div>
 
             {/* Bottom Actions: Inspect AI Rationale & Try-it-Yourself Simulator */}
