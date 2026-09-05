@@ -7,7 +7,6 @@ import InspectorDrawer from './components/InspectorDrawer';
 import CustomerSimulatorModal from './components/CustomerSimulatorModal';
 import AnalyticsCharts from './components/AnalyticsCharts';
 import WorkflowsTab from './components/WorkflowsTab';
-import AuditTrailSection from './components/AuditTrailSection';
 import { BarChart2, Zap } from 'lucide-react';
 
 export default function App() {
@@ -216,13 +215,6 @@ export default function App() {
               onInspectTransaction={handleInspectTransaction}
               onOpenMobileSimulator={setSimulatingTxn}
               onApproveHumanAction={handleApproveHumanAction}
-            />
-
-            {/* Filter-Adaptable Live Audit Trail & Recovery Stream at Bottom of Analytics */}
-            <AuditTrailSection
-              selectedMerchant={selectedMerchant}
-              transactions={transactions}
-              onInspectTransaction={handleInspectTransaction}
             />
           </div>
         )}
