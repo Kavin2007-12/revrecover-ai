@@ -72,9 +72,10 @@ Respond ONLY with a valid JSON object matching this schema:
     const category = txn.category;
 
     if (reason.includes('TIMED_OUT') || reason.includes('SERVER_DOWN')) {
+      const bankName = txn.failureDetail ? txn.failureDetail.split(' ')[0] : 'Bank NetBanking';
       return {
         category: 'TECHNICAL_GATEWAY',
-        rootCauseSummary: `Bank payment gateway (${txn.failureDetail.split(' ')[0]}) suffered a temporary network timeout during authentication.`,
+        rootCauseSummary: `Bank payment gateway (${bankName}) suffered a temporary network timeout during authentication.`,
         recommendedAction: 'WHATSAPP_NUDGE_LINK',
         incentiveOffered: 'Instant UPI Intent Link (Skip Bank NetBanking)',
         confidenceScore: 0.96,
